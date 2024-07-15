@@ -2,7 +2,6 @@ package myCollections;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 
 class M_sort {
@@ -17,15 +16,12 @@ class M_sort {
         //2. 带参数sort,可以自己指定排序规则
         LinkedList<Student> list = new LinkedList<>();
         Collections.addAll(list, new Student(18), new Student(20), new Student(23));
-        Collections.sort(list, new Comparator<Student>() {
-            @Override
-            public int compare(Student o1, Student o2) {
-                return o2.age - o1.age;                    //如果指定了比较器，那么比较器优先
-            }
-        });
+        Collections.sort(list, (o1, o2) -> o2.age - o1.age);  //lambda表达式
         System.out.println(list);
 
     }
+
+
 }
 
 
